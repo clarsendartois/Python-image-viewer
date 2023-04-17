@@ -24,7 +24,8 @@ def Back():
 
 
 window = Tk()
-window.resizable()
+window.geometry("300x300+0+0")
+window.resizable(0,0)
 window.title("TechVidan")
 Label(window, text="Image Viewer App", font=("bold", 20)).pack()
 
