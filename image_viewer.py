@@ -58,8 +58,8 @@ class ImageViewer:
         text2.place(relx=0.5, rely=0.5, x=-555, y=-20)
 
     def create_open_image(self):
-        file_types = [("*.jpg", "*.png")]
-        open_image = tkfd.askopenfilename(filetypes=file_types)
+        open_image = tkfd.askopenfilename()
+        open_image.endswith((".jpg", ".png"))
 
         img = Image.open(open_image)
         img = img.resize((1175, 965), resample=Image.Resampling.LANCZOS)
@@ -73,10 +73,13 @@ class ImageViewer:
         try:
             next_one = list_images.curselection()
             next_one = next_one[0]+1
+
             image = list_images.get(next_one)
+
             img = Image.open(image)
             img = img.resize((1175, 965), resample=Image.Resampling.LANCZOS)
             img = ImageTk.PhotoImage(img)
+
             image_label = tk.Label(self.frame_display, image=img)
             image_label.image = img
             image_label.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
@@ -98,10 +101,13 @@ class ImageViewer:
         try:
             next_one = list_images.curselection()
             next_one = next_one[0]-1
+
             image = list_images.get(next_one)
+
             img = Image.open(image)
             img = img.resize((1175, 965), resample=Image.Resampling.LANCZOS)
             img = ImageTk.PhotoImage(img)
+
             image_label = tk.Label(self.frame_display, image=img)
             image_label.image = img
             image_label.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
@@ -123,24 +129,29 @@ class ImageViewer:
         global list_images
         open_folder = tkfd.askdirectory()
         os.chdir(open_folder)
+
         all_images = os.listdir(open_folder)
         all_images.reverse()
+
         list_images = tk.Listbox(self.frame_display, bd=5, width=30, height=20)
         list_images.place(x=100, y=100)
         for image in all_images:
             pos = 0
-            if image.endswith((".jpg", ".png", ".webp")):
+            if image.endswith((".jpg", ".png")):
                 list_images.insert(pos, image)
                 pos += 1
         list_images.selection_set(0)
         list_images.see(0)
         list_images.activate(0)
         list_images.selection_anchor(0)
+
         image = list_images.curselection()
         images = list_images.get(image[0])
+
         img = Image.open(images)
         img = img.resize((1175, 965), resample=Image.Resampling.LANCZOS)
         img = ImageTk.PhotoImage(img)
+        
         image_label = tk.Label(self.frame_display, image=img)
         image_label.image = img
         image_label.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
