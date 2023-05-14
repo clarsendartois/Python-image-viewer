@@ -58,7 +58,7 @@ class ImageViewer:
         text2.place(relx=0.5, rely=0.5, x=-555, y=-20)
 
     def create_open_image(self):
-        file_types = [('Jpg Files', '*.jpg'), ('PNG Files', '*.png')]
+        file_types = [("*.jpg", "*.png")]
         open_image = tkfd.askopenfilename(filetypes=file_types)
 
         img = Image.open(open_image)
@@ -129,7 +129,7 @@ class ImageViewer:
         list_images.place(x=100, y=100)
         for image in all_images:
             pos = 0
-            if image.endswith((".jpg", ".png")):
+            if image.endswith((".jpg", ".png", ".webp")):
                 list_images.insert(pos, image)
                 pos += 1
         list_images.selection_set(0)
