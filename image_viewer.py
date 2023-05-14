@@ -118,29 +118,6 @@ class ImageViewer:
             self.button_nex.place(relx=0.5, rely=0.5, x=275, y=-25)
         except:
             showerror("No Previous Image", "Please, press the next button.")
-    #     next_one = self.listImages.curselection()
-    #     next_one = next_one[0]-1
-    #     image = self.listImages.get(next_one)
-    #     self.img1 = Image.open(image)
-    #     self.img1 = self.img1.resize(
-    #         (1175, 965), resample=Image.Resampling.LANCZOS)
-    #     self.img1 = ImageTk.PhotoImage(self.img1)
-    #     self.imageLabel = tk.Label(self.frame_display)
-    #     self.imageLabel.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
-    #     self.imageLabel["compound"] = tk.LEFT
-    #     self.imageLabel["image"] = self.img1
-
-    #     self.listImages.select_clear(0, tk.END)
-    #     self.listImages.activate(next_one)
-    #     self.listImages.selection_set(next_one, last=None)
-    #     self.var.set(Image)
-
-    #     self.button_pre = ctk.CTkButton(
-    #         self.frame_display, text="<", width=5, command=self.previous_image)
-    #     self.button_pre.place(relx=0.5, rely=0.5, x=-295, y=-25)
-    #     self.button_nex = ctk.CTkButton(
-    #         self.frame_display, text=">", width=5, command=self.next_image)
-    #     self.button_nex.place(relx=0.5, rely=0.5, x=275, y=-25)
 
     def create_open_folder(self):
         global list_images
