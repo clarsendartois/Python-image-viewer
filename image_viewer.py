@@ -21,7 +21,7 @@ text_text2 = "Once you add photos, you'll be able to view them all here"
 class ImageViewer:
     def __init__(self):
         self.window = ctk.CTk()
-        self.window.geometry("600x500+0+0")
+        self.window.geometry("700x500+0+0")
         self.window.resizable(0, 0)
         self.window.title("CLARSEN: Image Viewer")
 
@@ -45,7 +45,7 @@ class ImageViewer:
 
     def create_frame_display(self):
         main_frame = ctk.CTkFrame(
-            self.window, width=590, height=490, corner_radius=10, fg_color=bg_fg_color)
+            self.window, width=690, height=490, corner_radius=10, fg_color=bg_fg_color)
         main_frame.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
 
     def create_label(self):
@@ -62,7 +62,7 @@ class ImageViewer:
         open_image.endswith((".jpg", ".png"))
 
         img = Image.open(open_image)
-        img = img.resize((1175, 965), resample=Image.Resampling.LANCZOS)
+        img = img.resize((1375, 965), resample=Image.Resampling.LANCZOS)
         img = ImageTk.PhotoImage(img)
 
         image_label = tk.Label(self.frame_display, image=img)
@@ -77,7 +77,7 @@ class ImageViewer:
             image = list_images.get(next_one)
 
             img = Image.open(image)
-            img = img.resize((1175, 965), resample=Image.Resampling.LANCZOS)
+            img = img.resize((1375, 965), resample=Image.Resampling.LANCZOS)
             img = ImageTk.PhotoImage(img)
 
             image_label = tk.Label(self.frame_display, image=img)
@@ -90,10 +90,10 @@ class ImageViewer:
 
             self.button_pre = ctk.CTkButton(
                 self.frame_display, text="<", width=5, command=self.previous_image)
-            self.button_pre.place(relx=0.5, rely=0.5, x=-295, y=-25)
+            self.button_pre.place(relx=0.5, rely=0.5, x=-350, y=-25)
             self.button_nex = ctk.CTkButton(
                 self.frame_display, text=">", width=5, command=self.next_image)
-            self.button_nex.place(relx=0.5, rely=0.5, x=275, y=-25)
+            self.button_nex.place(relx=0.5, rely=0.5, x=330, y=-25)
         except:
             showerror("No Next Image", "Please, press the previous button.")
 
@@ -105,7 +105,7 @@ class ImageViewer:
             image = list_images.get(next_one)
 
             img = Image.open(image)
-            img = img.resize((1175, 965), resample=Image.Resampling.LANCZOS)
+            img = img.resize((1375, 965), resample=Image.Resampling.LANCZOS)
             img = ImageTk.PhotoImage(img)
 
             image_label = tk.Label(self.frame_display, image=img)
@@ -118,10 +118,10 @@ class ImageViewer:
 
             self.button_pre = ctk.CTkButton(
                 self.frame_display, text="<", width=5, command=self.previous_image)
-            self.button_pre.place(relx=0.5, rely=0.5, x=-295, y=-25)
+            self.button_pre.place(relx=0.5, rely=0.5, x=-350, y=-25)
             self.button_nex = ctk.CTkButton(
                 self.frame_display, text=">", width=5, command=self.next_image)
-            self.button_nex.place(relx=0.5, rely=0.5, x=275, y=-25)
+            self.button_nex.place(relx=0.5, rely=0.5, x=330, y=-25)
         except:
             showerror("No Previous Image", "Please, press the next button.")
 
@@ -149,7 +149,7 @@ class ImageViewer:
         images = list_images.get(image[0])
 
         img = Image.open(images)
-        img = img.resize((1175, 965), resample=Image.Resampling.LANCZOS)
+        img = img.resize((1375, 965), resample=Image.Resampling.LANCZOS)
         img = ImageTk.PhotoImage(img)
         
         image_label = tk.Label(self.frame_display, image=img)
@@ -158,10 +158,10 @@ class ImageViewer:
 
         self.button_pre = ctk.CTkButton(
             self.frame_display, text="<", width=5, command=self.previous_image)
-        self.button_pre.place(relx=0.5, rely=0.5, x=-295, y=-25)
+        self.button_pre.place(relx=0.5, rely=0.5, x=-350, y=-25)
         self.button_nex = ctk.CTkButton(
             self.frame_display, text=">", width=5, command=self.next_image)
-        self.button_nex.place(relx=0.5, rely=0.5, x=275, y=-25)
+        self.button_nex.place(relx=0.5, rely=0.5, x=330, y=-25)
 
     def run(self):
         self.window.mainloop()
