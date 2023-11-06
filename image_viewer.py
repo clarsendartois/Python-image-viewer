@@ -21,7 +21,7 @@ text_text2 = "Once you add photos, you'll be able to view them all here"
 class ImageViewer:
     def __init__(self):
         self.window = ctk.CTk()
-        self.window.geometry("700x500+0+0")
+        self.window.geometry("600x500+0+0")
         self.window.resizable(0, 0)
         self.window.title("CLARSEN: Image Viewer")
 
