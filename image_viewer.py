@@ -151,7 +151,7 @@ class ImageViewer:
         img = Image.open(images)
         img = img.resize((1375, 965), resample=Image.Resampling.LANCZOS)
         img = ImageTk.PhotoImage(img)
-        
+
         image_label = tk.Label(self.frame_display, image=img)
         image_label.image = img
         image_label.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
